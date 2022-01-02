@@ -1,7 +1,0 @@
-
-
-
-<div class="uk-margin">
-	<input class="uk-input" id="{{ datas.id }}" name="{{ datas.slug }}"  value="{% if datas.value is defined %}{{ datas.value|raw }}{% endif %}" type="text"   {% if datas.disabled is defined and datas.disabled=="true" %} disabled {% endif %}  {% if datas.validate is defined and datas.validate=="true" %} required {% endif %} >
-    
-</div>
