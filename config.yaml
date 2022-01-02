@@ -1,0 +1,9 @@
+# ---
+# Config of project
+# http://en.wikipedia.org/wiki/YAML#Sample_document
+#---
+version:    1
+salt:       ""
+dev:        true
+cache:      false
+email:      ""

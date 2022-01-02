@@ -1,0 +1,32 @@
+1 Open terminal
+
+------------- Install php dependencies -----------
+
+2 Once if necessary Install composer 
+php composer-setup.php --install-dir=bin
+
+3 Once Download dependencies
+Cd [dossier]/app/
+composer install
+
+------------- Install Node js dependencies -----------
+
+3 Once if necessary Install YARN
+brew install yarn
+
+----------------------
+
+#Once install des packages:
+yarn install
+
+----------------------
+When you modify project:
+
+1 cd [ glisser le dossier sources]
+2 gulp
+
+# result :
+# lunch localhost:3000
+# Check your sources assets scss,js and omg and build your product assets
+# reload when you modify files and rebuild twig, css or js
+# write "gulp deploy" for sync your folder by ftp ( if you have edit a right id and pass on gulpfile.js)
