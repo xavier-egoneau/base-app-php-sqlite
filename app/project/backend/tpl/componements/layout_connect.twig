@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="fr">
+    <head>
+    {% include 'header.twig' %}  
+    </head>
+    <body class="menubar-hoverable menubar-pin menubar-first" >
+
+    	<div class="hide" data-url="{{root}}" id="data_url"></div>
+<div class="hide" data-url="{{root}}api/v1/" id="data_url_api"></div>
+<div class="hide" data-url="{{local}}" id="data_url_local"></div>
+<div class="hide" data-status="{{ auth }}" id="data_connected"></div>
+	  {% include 'menu.twig' %} 
+	  
+	  <main id="main">
+	  	<div class="container">
+	  		
+	  		{% block content %}{% endblock %}
+      
+		</div>
+	  </main>
+
+      	
+      {% include 'footer.twig' %}  
+    </body>
+</html>

@@ -1,0 +1,363 @@
+accueil:
+	fr: "Accueil"
+	en: "Home"
+	ch: ""
+regions:
+	fr: "Régions"
+	en: "Regions"
+	ch: ""
+region:
+	fr: "Région"
+	en: "Region"
+	ch: ""
+parametres:
+	fr: "Paramètres"
+	en: "Settings"
+	ch: ""
+users:
+	fr: "Utilisateurs"
+	en: "Users"
+	ch: ""
+user:
+	fr: "Mon compte"
+	en: "My account"
+	ch: ""
+exit:
+	fr: "Se déconnecter"
+	en: "Sign out"
+	ch: ""
+nonpublie:
+	fr: "Hors ligne"
+	en: "Unpublished"
+	ch: ""
+sanstitre:
+	fr: "Sans titre"
+	en: "Untitled"
+	ch: ""
+editer:
+	fr: "Éditer"
+	en: "Edit"
+	ch: ""
+supprimer:
+	fr: "Supprimer"
+	en: "Delete"
+	ch: ""
+ordonner:
+	fr: "Ordonner"
+	en: "Order"
+	ch: ""
+contenttypes:
+	fr: "Content types"
+	en: "Content types"
+	ch: ""
+editercategorie:
+	fr: "Editer la catégorie"
+	en: "Edit category"
+	ch: ""
+revenir:
+	fr: "Revenir"
+	en: "Back"
+	ch: ""
+ajouterarticle:
+	fr: "Ajouter un article."
+	en: "Add Article"
+	ch: ""
+version:
+	fr: "Version"
+	en: "Version"
+	ch: ""
+voirpage:
+	fr: "Voir la page"
+	en: "See page"
+	ch: ""
+save:
+	fr: "sauvegarder"
+	en: "Save"
+	ch: ""
+annuler:
+	fr: "Annuler"
+	en: "Cancel"
+	ch: ""
+modifier:
+	fr: "Modifier"
+	en: "Edit"
+	ch: ""
+content:
+	fr: "Contenu"
+	en: "Content"
+	ch: ""
+content:
+	fr: "Contenu"
+	en: "Content"
+	ch: ""
+title:
+	fr: "Titre"
+	en: "Title"
+	ch: ""
+tags:
+	fr: "Tags"
+	en: "Tags"
+	ch: ""
+template:
+	fr: "Template"
+	en: "Template"
+	ch: ""
+modules:
+	fr: "Type de contenu"
+	en: "Content type"
+	ch: ""
+nondefini:
+	fr: "Non defini"
+	en: "Undefined"
+	ch: ""
+infomodules:
+	fr: "Modules utilisés pour cette catégorie."
+	en: "Modules used for this category."
+	ch: ""
+infosurl:
+	fr: "L'adresse WEB de votre page"
+	en: "The WEB address of your page"
+	ch: ""
+metatitle:
+	fr: "Utilisé pour l'indexation par les moteurs de recherches."
+	en: "Used for indexing by search engines."
+	ch: ""
+metadesc:
+	fr: "Description qui s'affichera dans les résultats des moteurs de recherches."
+	en: "Description that will appear in search engine results."
+	ch: ""
+brouillon:
+	fr: "Brouillon"
+	en: "Draft"
+	ch: ""
+publie:
+	fr: "Privé/public"
+	en: "Published"
+	ch: ""
+img:
+	fr: "Image"
+	en: "Picture"
+	ch: ""
+img:
+	fr: "Image"
+	en: "Picture"
+	ch: ""
+search:
+	fr: "Recherche"
+	en: "Search"
+	ch: ""
+ajouterregion:
+	fr: "Ajouter une region HTML."
+	en: "Add region HTML"
+	ch: ""
+permissionmodules:
+	fr: "Permissions Modules"
+	en: "Modules Permissions"
+	ch: ""
+permissionfolder:
+	fr: "Permissions catégories"
+	en: "Folder Permissions"
+	ch: ""
+permissionsettingadvanced:
+	fr: "Paramètre Permissions avancés"
+	en: "Advanced permissions setting"
+	ch: ""
+add:
+	fr: "Ajouter"
+	en: "Add"
+	ch: ""
+delete:
+	fr: "Suppimer"
+	en: "Delete"
+	ch: ""
+edit:
+	fr: "Éditer"
+	en: "Edit"
+	ch: ""
+yes:
+	fr: "Oui"
+	en: "Yes"
+	ch: ""
+no:
+	fr: "Non"
+	en: "No"
+	ch: ""
+ipfilter:
+	fr: "Filtrage du backend par IP"
+	en: "Backend IP Filter"
+	ch: ""
+langues:
+	fr: "Langues"
+	en: "Languages"
+	ch: ""
+imgfb:
+	fr: "Image Facebook par défaut"
+	en: "Facebook picture default"
+	ch: ""
+shortcuticon:
+	fr: "Image de raccourci"
+	en: "Shortcut icon"
+	ch: ""
+analyticstxt:
+	fr: "Code fourni par google Analytics pour suivre vos statistiques"
+	en: "Code provided by google Analytics to track your statistics"
+	ch: ""
+desctxt:
+	fr: "Description qui s'affichera dans les résultats des moteurs de recherches."
+	en: "Description that will appear in search engine results."
+	ch: ""
+titletxt:
+	fr: "Utilisé pour l'indexation par les moteurs de recherches."
+	en: "Used for indexing by search engines."
+	ch: ""
+desctitre:
+	fr: "Description longue"
+	en: "Long description"
+	ch: ""
+tags:
+	fr: "Mots clefs"
+	en: "tags"
+	ch: ""
+sitenametxt:
+	fr: "S'affichera dans les onglets des navigateurs et dans les résultats des moteurs de recherches."
+	en: "Will appear in browser tabs and search engine results."
+	ch: ""
+sitename:
+	fr: "Nom du site"
+	en: "Site name"
+	ch: ""
+addcat:
+	fr: "Ajouter une catégorie"
+	en: "Add folder"
+	ch: ""
+noresult:
+	fr: "Aucun résultat."
+	en: "No result"
+	ch: ""
+yoursearch:
+	fr: "Votre recherche"
+	en: "Your search"
+	ch: ""
+addmodule:
+	fr: "Ajouter un content type."
+	en: "Add Content type."
+	ch: ""
+adduser:
+	fr: "Ajouter un utilisateur."
+	en: "Add User."
+	ch: ""
+nom:
+	fr: "Nom"
+	en: "Name"
+	ch: ""
+prenom:
+	fr: "Prénom"
+	en: "First name"
+	ch: ""
+prenom:
+	fr: "Prénom"
+	en: "First name"
+	ch: ""
+pass:
+	fr: "Mot de passe"
+	en: "Password"
+	ch: ""
+email:
+	fr: "E-mail"
+	en: "E-mail"
+	ch: ""
+undefined:
+	fr: "Non défini"
+	en: "Undefined"
+	ch: ""
+admin:
+	fr: "Admin"
+	en: "Admin"
+	ch: ""
+editor:
+	fr: "Editeur"
+	en: "Editor"
+	ch: ""
+visitor:
+	fr: "Visiteur"
+	en: "Visitor"
+	ch: ""
+creator:
+	fr: "Créateur"
+	en: "Creator"
+	ch: ""
+status:
+	fr: "Statut"
+	en: "Status"
+	ch: ""
+savedatas:
+	fr: "Sauveguarder les données"
+	en: "Save Datas"
+	ch: ""
+daletedatas:
+	fr: "Supprimer cette sauveguarde."
+	en: "Delete this Backup."
+	ch: ""
+returndatas:
+	fr: "Return to this version of the site."
+	en: "Save Datas"
+	ch: ""
+defaulttemplate:
+	fr: "Template par défaut"
+	en: "Default Template"
+	ch: ""
+defaulttemplate:
+	fr: "Template qui sera appliqué par défault sur toutes les pages de la catégorie."
+	en: "Template that will be applied by default on all pages of the category."
+	ch: ""
+type:
+	fr: "Type"
+	en: "Type"
+	ch: ""
+publish:
+	fr: "Publier le site"
+	en: "Update website"
+	ch: ""
+rs:
+	fr: "Reseaux sociaux"
+	en: "Social network"
+	ch: ""
+sitemappriority:
+	fr: "Niveau de priorité dans le Sitemap"
+	en: "Priority sitemap"
+	ch: ""
+sitemapprioritycom:
+	fr: "Définit l'importance de la page dans le site."
+	en: "Defines the importance of the page in the site."
+	ch: ""
+sitemapfrequence:
+	fr: "Fréquence de mises à jour."
+	en: "frequence of update"
+	ch: ""
+sitemapfrequencecom:
+	fr: "never, monthly, yearly, daily ou weekly"
+	en: "never, monthly, yearly, daily or weekly"
+	ch: ""
+categorie:
+	fr: "catégories"
+	en: "Folders"
+	ch: ""
+search:
+	fr: "Rechercher"
+	en: "Search"
+	ch: ""
+tags:
+	fr: "Ajoutez vos tags ici puis validez avec entrer."
+	en: "Add your tags here then validate with enter"
+	ch: ""
+advencedparameter:
+	fr: "Permet plus d'options pour les admins"
+	en: "Allows more options for admins"
+	ch: ""
+public:
+	fr: "Privé/Public"
+	en: "Private/public"
+	ch: ""
+regiontxt1:
+	fr: "YAML contenant 'name' et 'type' pour chaque contenu."
+	en: "YAML with name and type for all content."

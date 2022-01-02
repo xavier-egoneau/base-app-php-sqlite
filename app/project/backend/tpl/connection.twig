@@ -1,0 +1,57 @@
+{% extends "layout.twig" %}
+
+ {% block content %}
+
+<main  class="connexiontemplate" style="    height: 100vh;" >
+		<div class="container">
+			
+<div class="uk-section uk-section-muted uk-flex uk-flex-middle uk-animation-fade connect-page" uk-height-viewport>
+	<div class="uk-width-1-1">
+		<div class="uk-container">
+			<div class="uk-grid-margin uk-grid uk-grid-stack" uk-grid>
+				<div class="uk-width-1-1@m">
+					<div class="uk-margin uk-width-large uk-margin-auto uk-card uk-card-default uk-card-body uk-box-shadow-large">
+						<h3 class="uk-card-title uk-text-center">Welcome back!</h3>
+						
+						
+						
+						
+						<form class="form ajaxForms_to_reload"  action="{{root}}api/v1/login" accept-charset="utf-8" method="post">
+							<div class="uk-margin">
+								<div class="uk-inline uk-width-1-1">
+									<span class="uk-form-icon" uk-icon="icon: mail"></span>
+									<input class="uk-input uk-form-large" id="log" name="log" type="text">
+								</div>
+							</div>
+							<div class="uk-margin">
+								<div class="uk-inline uk-width-1-1">
+									<span class="uk-form-icon" uk-icon="icon: lock"></span>
+									<input class="uk-input uk-form-large" id="pass" name="pass" type="password">	
+								</div>
+							</div>
+							<div class="uk-margin">
+								<button class="uk-button uk-button-primary uk-button-large uk-width-1-1 connexionbutton" type="submit">Envoyer</button>
+							</div>
+							<div class="uk-text-small uk-text-center">
+								{% if msg is defined and msg !="" %}
+									<div class="msg" >{{ msg|raw }}</div>
+								{% else %}
+									<a href="{{ local }}reminder" >Mot de passe oublié</a>
+								{% endif %}
+								<div class="reponseerror hide" > Erreur dans les identifiants.</div>
+							</div>
+						</form>
+						
+						
+						
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+		</div>
+</main>
+ {% endblock %}

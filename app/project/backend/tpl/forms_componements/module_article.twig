@@ -1,0 +1,13 @@
+
+
+
+
+<div class="uk-margin">
+  <select class="uk-select" id="{{ datas.id }}" name="{{ datas.slug }}">
+    {% for option in datas.options %}
+      <option value="" {% if datas.value == "" %}selected {% endif %}>Non défini</option>
+      <option value="{{ option.id }}" {% if datas.value == option.id %} selected {% endif %} >{{ option.titre }}</option>
+        
+     {% endfor %}
+  </select>
+</div>

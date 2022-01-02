@@ -1,0 +1,106 @@
+{% extends "layout_connect.twig" %}
+
+ {% block content %}
+ 
+
+{# 
+	-----------------------------
+	revenir
+	-----------------------------
+#}
+{% if return is defined  %}
+ 	
+ 	<a href="{{ local }}{{ return }}" class="uk-box-shadow-hover-small bttn bttn-top" uk-tooltip="title: {{ languages.revenir }}; pos: right"><i class="icon icon-left"></i></a>
+
+
+{% endif %}	
+
+{# 
+	-----------------------------
+	Ajouter
+	-----------------------------
+#}
+{% if 
+	user.type==1 or user.type==2
+ %}
+ 	<a href="{{ local }}save/" class="uk-box-shadow-hover-small bttn bttn-top sendandreload" uk-tooltip="title: {{ languages.savedatas }}; pos: right"><i class="icon icon-plus2"></i></a>
+
+
+<div class="clear"></div>
+{% endif %}	
+
+{% if 
+	user.type=="1" or 
+ 	user.type=="2" and in_array("c",parametres.permissions_modules) or 
+ 	return is defined
+ %}
+<div class="space"></div>
+{% endif %}					
+ 								
+ {# 
+	-----------------------------
+	titre de la page
+	-----------------------------
+#}				
+<div class="uk-dark">				
+ <h3>{% if pagetitre is defined %}<a class="page-title truncate">{{pagetitre}}</a> {% endif %}</h3>		
+</div> 
+
+
+<ul  class="collection">
+
+ 					
+ 					{% for key, backup in backups|reverse  %} 							
+ 							
+ 							{% set file = backup|replace({'.json': ""}) %}
+ 							{% set date = file|split('-') %}
+ 							{% include 'card_backup.twig' with {
+ 									'id':key,
+ 									'titre':backup,
+ 									'local':local,
+ 									'date':date,
+ 									'file':file,
+ 									'usertype':user.type,
+ 									'languages':languages
+ 							} only %} 
+ 							
+ 					{% endfor %}
+ 					
+ 					
+</ul>
+ 
+<script>
+$(".deletebackup").on("click",function(e){
+	e.preventDefault();
+	
+	var url = $(this).attr("href");		   
+	 					
+	 			UIkit.modal.confirm("<b>Attention! </b><br>êtes-vous sûr de vouloir supprimer cette sauveguarde?").then(function() {
+				    
+				    
+
+	 			
+	 			   
+	 		       $.post( url, function(data){
+	 		       	
+	 		       	 if(data.status === 'true'){
+	 		       		notification("Sauveguarde supprimée.");
+	 		       		location.reload();//$(to_delete).remove();
+	 		       	 }else{
+	 		       	  erreur(data.status);
+	 		       	 }
+	 		       	
+	 		       });
+
+
+
+				});
+	return false;
+});
+</script>
+
+
+
+ 
+ 
+ {% endblock %}

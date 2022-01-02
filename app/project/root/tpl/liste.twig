@@ -1,0 +1,96 @@
+{% extends "layout.twig" %} {% block content %}
+
+
+<section class="zero blck reveal page" id="section1">
+	<div class="bgvid page cover" data-image="{{ uploads}}big_{{ page.image }}">
+		
+	</div>
+
+	<div class="valign-wrapper" id="first1" >
+
+		<div class="container3 ">
+			<h1 id="textintro">{{ page.titre }}</h1>
+		</div>
+
+	</div>
+
+<a href="{{ root }}" id="logo" class="chngclr">
+	{% include "logo.twig" %}
+</a>
+
+<ul class="menu2">
+	{% for item in pages %}
+    {% if item.id != 10 %}
+	<li><a href="{{ item.url }}" title="{{ item.titre }}">{{ item.titre }}</a></li>
+	{% endif %}{% endfor %}
+</ul>
+
+</section>
+
+
+
+<section id="presta" >
+	<div class="container2">
+
+		<h1 class="h2" id="bigtextaccueil">{{ page.titre }}  </h1>
+		<div class="clear"></div>
+        
+
+        <div class="txt">{{ page.content|raw }}</div>
+        <div class="marg50"></div>
+
+        
+        
+		<div class="row masonry">
+			
+	
+{% for item in items %}
+    
+    {% if item.label=="Santé / Équilibre" %}
+        {% set colorlabel = "vert" %}
+    {% elseif item.label=="EOS Concept" %}
+        {% set colorlabel = "jaune" %}
+    {% elseif item.label=="TIPS" %}
+        {% set colorlabel = "bleu" %}
+    {% elseif item.label=="Règlementation" %}
+        {% set colorlabel = "gris" %}
+    {% endif %}
+            
+    <div class="col s6 grid-item">
+      <div class="card {{ colorlabel }}">
+        <div class="card-image mask">
+          <img src="{{ uploads }}medium_{{item.image }}">
+            
+            
+             <span class="badge {{ colorlabel }} ">{{ item.label }}</span>
+            
+            
+          <span class="card-title">{{item.titre }}</span>
+        </div>
+        <div class="card-content">
+            
+			{{ trunc(item.content,250)|raw }}
+			
+        </div>
+        <div class="card-action">
+          <a href="{{ item.url }}">En savoir +</a>
+        </div>
+      </div>
+    </div>
+{% endfor %}
+            
+       
+
+			
+		</div>
+		
+	</div>
+</section>
+
+
+
+
+<!-- Chatra {literal} -->
+{% include "contactform.twig" %}
+
+{% endblock %}

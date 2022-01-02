@@ -1,0 +1,10 @@
+# bloque l'indexation des images pour les robots
+User-agent: *
+Disallow: /*.jpg$
+Disallow: /*.png$
+Disallow: /*.gif$
+Disallow: /uploads/
+Disallow: /backend/
+Disallow: /api/
+Disallow: /datas/
+Allow: /

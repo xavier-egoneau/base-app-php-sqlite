@@ -1,0 +1,101 @@
+{% extends "layout_connect.twig" %}
+
+ {% block content %}
+ 
+{# 
+	-----------------------------
+	revenir
+	-----------------------------
+#}
+{% if return is defined  %}
+ 	
+ 	<a href="{{ local }}{{ return }}" class="uk-box-shadow-hover-small bttn bttn-top" uk-tooltip="title: {{ languages.revenir }}; pos: right"><i class="icon icon-left"></i></a>
+
+
+{% endif %}	
+
+{# 
+	-----------------------------
+	Ajouter
+	-----------------------------
+#}
+{% if 
+	user.type=="1" or 
+ 	user.type=="2" and in_array("c",parametres.permissions_modules)
+ %}
+ 	<a href="{{ local }}users/new/" class="uk-box-shadow-hover-small bttn bttn-top" uk-tooltip="title: {{ languages.adduser }}; pos: right"><i class="icon icon-plus2"></i></a>
+
+{% endif %}	
+ 						
+<div class="clear"></div>
+				
+{% if 
+	user.type=="1" or 
+ 	user.type=="2" and in_array("c",parametres.permissions_modules) or 
+ 	return is defined
+ %}
+<div class="space"></div>
+{% endif %}	
+
+
+ {# 
+	-----------------------------
+	titre de la page
+	-----------------------------
+#}				
+<div class="uk-dark">				
+ <h3>{% if pagetitre is defined %}<a class="page-title truncate">{{pagetitre}}</a> {% endif %}</h3>		
+</div> 	
+
+
+
+
+{# 
+	-----------------------------
+	items
+	-----------------------------
+#}
+<ul id="sortable" data-table="users" class="collection sortable uk-sortable-handle" uk-sortable="handle: .handle">
+
+
+ 					{% for useritem in users  %}
+ 						{% if user.type <= useritem.type %}		
+ 							{% if useritem.type=='1' %}
+ 								{% set infos = ' <span class="uk-badge"><i class="icon icon-man-people-streamline-user"></i> ' ~ languages.creator ~ '</span>' %}	
+ 							{% elseif useritem.type ==2 %}
+ 								{% set infos = ' <span class="uk-badge"><i class="icon icon-man-people-streamline-user"></i> ' ~ languages.admin ~ '</span>' %}	
+ 							{% elseif useritem.type ==2 %}
+ 								{% set infos = ' <span class="uk-badge"><i class="icon icon-man-people-streamline-user"></i> ' ~ languages.editor  ~ '</span>'%}	
+ 							{% endif %}
+ 							 
+ 							
+ 					
+
+ 							{% include 'card_generique.twig' with {
+ 									'id':useritem.id,
+ 									'titre':useritem.email,
+ 									'ref':"",
+ 									'statut':useritem.statut,
+ 									'ordre':useritem.ordre,
+ 									'infos':infos,
+ 									'language':languages,
+ 									'appurl':local,
+ 									'usertype':user.type,
+ 									'card_type':"users"
+ 							} only %} 
+ 					
+ 															
+ 						{% endif %}	
+ 					{% endfor %}
+ 					
+ 					
+ 					</ul><!--end row -->						
+
+ 
+ 
+
+
+
+ 
+ 
+ {% endblock %}

@@ -1,0 +1,17 @@
+
+<div class="clear"></div>
+<div class="file-field input-field">
+      <div class="btn">
+        <span>Upload ZIP</span>
+        <input type="file" data-id="{{ datas.id }}"  data-div="receipt{{ datas.slug }}" data-type="zip"  >
+      </div>
+      <div class="file-path-wrapper">
+        <input class="file-path validate" type="text" name="{{ datas.slug }}" id="{{ datas.id }}" value="{{ datas.value }}">
+      </div>
+</div>
+
+ <div id="receipt{{ datas.slug }}">
+ {% if datas.value is defined and datas.value!="" %}
+	<a href="{{ datas.uploads }}{{ datas.value }}" target="_blank"><i class="icon icon-link-1"></i></a>
+ {% endif %}
+ </div>

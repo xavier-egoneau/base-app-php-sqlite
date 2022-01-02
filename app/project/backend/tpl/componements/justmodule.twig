@@ -1,0 +1,248 @@
+
+
+
+
+<li id="module{{ datas.id }}" class="collection-item list-group-item {{ module.type }}" data-id="{{ datas.id }}" data-ref="{{ datas.ref }}" ordre="0" >
+	
+<div class="uk-margin">
+
+				
+				{% if datas.traductible!="true" or datas.languearray|length==1  %}
+				<h1 class="uk-h3">{{ datas.titre }} {% if datas.type !="region" %} <span class="uk-badge"> &lcub;&lcub;  &#x20; {{ datas.slug }} &rcub;&rcub; </span>{% endif %}</h1>
+				{% endif %}
+
+				{% if datas.type =="contenuCategorie" %}
+					
+				<div class="uk-margin">
+            	<select class="uk-select" id="{{ datas.id }}" name="{{ datas.name }}" >
+				     <option value="" disabled selected>Non défini</option>
+				     {% for option in datas.options %}
+				     		
+				     	<option value="{{ datas.option.id }}" {% if value==datas.option.id %} selected {% endif %}>{{ datas.option.titre }}</option>
+				     		
+				     {% endfor %}
+				   </select>
+				</div>
+				 
+					
+				{% else %}
+					
+					{% if datas.html!="" %}
+
+
+						{% if datas.traductible=="true" and datas.languearray|length>0 %}
+
+							<ul class="uk-flex-right" data-uk-tab="{connect:'#my-id'}">
+								<li><a href="">FR</a></li>
+								{% for langue in datas.languearray %}
+									<li><a href="">{{ langue }}</a></li>
+								{% endfor %}
+							</ul>
+							<ul id="my-id" class="uk-switcher uk-margin">
+							<li class="uk-margin">
+								
+				<h1 class="uk-h3">{{ datas.titre }} {% if datas.type !="region" %} <span class="uk-badge"> &lcub;&lcub;  &#x20; {{ datas.slug }} &rcub;&rcub; </span>{% endif %}</h1>
+				
+						{% endif %}
+
+
+						{# 	--------------------------
+							si module region
+							--------------------------
+						#}
+						<div class="region">
+							{% for moduleregion in datas.needed %}
+								
+
+								<h1 class="uk-h3">{{ moduleregion.name }} <span class="uk-badge"> &lcub;&lcub;  &#x20; {{ datas.slug }}.{{ moduleregion.name }} &rcub;&rcub; </span></h1>
+								
+								
+								<div class="clear"></div>
+
+								{% include [moduleregion.type ~ '.twig','404_componement.twig'] with {'datas': { 
+									'id': datas.id,
+									'slug': datas.slug~"["~moduleregion.name~"]",
+									'html': datas.html,
+									'needed': datas.needed,
+									'value': datas.value[moduleregion.name],
+									'ref': datas.ref,
+									'local':datas.local,
+									'uploads':datas.uploads,
+									'user':datas.user,
+									'options':datas.options,
+									"languearray":datas.languearray,
+									'folders':folders
+									
+								} }  only %}
+								
+							{% endfor %}
+							</div>
+
+
+						{% if datas.traductible=="true" and datas.languearray|length>1 %}
+						</li>
+						<li class="uk-margin">
+
+							{% for langue in datas.languearray %}
+								{% set lang_slug = datas.slug ~ langue %}
+								{% set newvalue = "value" ~ langue %}
+								{% set newid = datas.id ~ langue %}
+
+								<div class="clear"></div>
+								
+								<h1 class="uk-h3">{{ datas.titre }}<span class="uk-badge">{{ langue }}</span></h1>
+
+								<div class="region">
+
+								
+
+								
+
+									{% for moduleregion in datas.needed %}
+										<h1 class="uk-h3">{{ moduleregion.name }} <span class="uk-badge"> &lcub;&lcub;  &#x20; {{ lang_slug }}.{{ moduleregion.name }} &rcub;&rcub; </span></h1>
+										
+										
+										<div class="clear"></div>
+										{% set value2 = datas.article[lang_slug] %}
+										{% include [moduleregion.type ~ '.twig','404_componement.twig'] with {'datas': { 
+											'id': newid,
+											'slug': lang_slug~"["~moduleregion.name~"]",
+											'html': datas.html,
+											'needed': datas.needed,
+											'value': value2[moduleregion.name],
+											'ref': datas.ref,
+											'local':datas.local,
+											'uploads':datas.uploads,
+											'user':datas.user,
+											'options':datas.options,
+											"languearray":datas.languearray,
+											'folders':folders
+											
+										} }  only %}
+										
+									{% endfor %}
+									</div>
+									
+							{% endfor %}
+						</li>
+						<hr class="uk-divider-small">
+					</ul>
+						{% endif %}
+
+							
+					{# 	--------------------------
+						si module normal
+						--------------------------
+					#}
+						
+					{% else %}
+						
+						{% if datas.traductible=="true" and datas.languearray|length>1 %}
+						
+
+							<ul class="uk-flex-right" data-uk-tab="{connect:'#my-id'}">
+								<li><a href="">FR</a></li>
+								{% for langue in datas.languearray %}
+									<li><a href="">{{ langue }}</a></li>
+								{% endfor %}
+							</ul>
+							<ul id="my-id" class="uk-switcher uk-margin">
+							<li class="uk-margin">
+								
+				<h1 class="uk-h3">{{ datas.titre }} {% if datas.type !="region" %} <span class="uk-badge"> &lcub;&lcub;  &#x20; {{ datas.slug }} &rcub;&rcub; </span>{% endif %}</h1>
+				
+						{% endif %}
+					
+
+
+
+
+					
+						
+						{% include [datas.type ~ '.twig','404_componement.twig'] with {'datas': { 
+							'id': datas.id,
+							'slug': datas.slug,
+							'html': datas.html,
+							'needed': datas.needed,
+							'value': datas.value,
+							'ref': datas.ref,
+							'local':datas.local,
+							'uploads':datas.uploads,
+							'user':datas.user,
+							'options':datas.options,
+							'folders':datas.folders,
+							"languearray":datas.languearray,
+							'article':datas.article
+						} }  only %}
+                                
+						{# traduction langues supplementaires #}
+						{% if datas.traductible=="true" and datas.languearray|length>1 %}
+							</li>
+							{% for langue in datas.languearray %}
+								{% set lang_slug = datas.slug ~ langue %}
+								{% set newvalue = "value" ~ langue %}
+								{% set newid = datas.id ~ langue %}
+
+								<li class="uk-margin">
+								
+								<h1 class="uk-h3">{{ datas.titre }} <span class="uk-badge"> &lcub;&lcub;  &#x20; {{ datas.slug }}{{ langue }} &rcub;&rcub; </span> <span class="uk-badge uk-background-secondary">  Version {{ langue }}  </span></h1>
+								<div class="clear"></div>
+
+								{% include [datas.type ~ '.twig','404_componement.twig'] with {'datas': { 
+									'id': newid,
+									'slug': lang_slug,
+									'html': datas.html,
+									'needed': datas.needed,
+									'value': datas.article[lang_slug],
+									'ref': datas.ref,
+									'local':datas.local,
+									'uploads':datas.uploads,
+									'user':datas.user,
+									'options':datas.options,
+									'folders':datas.folders,
+									"languearray":datas.languearray,
+									'article':datas.article
+								} }  only %}
+								</li>
+
+							{% endfor %}
+						{% endif %}{# end traduction langues supplementaires #}
+
+						{% if datas.traductible=="true" and datas.languearray|length>1 %}</ul>{% endif %}
+					{% endif %}{# end si module normal #}
+	    			
+				{% endif %}
+				
+				
+				
+				
+				{% if datas.commentaire is defined and datas.commentaire!=""  %}
+				{% include 'blockquote.twig' with {'string': "{{ datas.commentaire|raw }}"  }  only %}
+				{% endif %}
+				
+	    		
+
+	    		 <div class="handle" id="handle{{ id }}" uk-tooltip="title: {{ language.ordonner }}; pos: left"  ><I class="icon icon-grid"></I></div>
+			
+
+		
+  		
+  		
+  		
+  	
+  		{% if datas.user.type==1 %}
+  		<div 
+  		class="bt delete deletemodule tooltippp" 
+  		data-table="modules" 
+  		data-id="{{ datas.id }}" 
+  		data-ref="{{ datas.ref }}" 
+  		data-callbackdelete="#module{{ datas.id }}" 
+  		data-position="top" 
+  		data-delay="50" 
+  		data-tooltip="Supprimer le "
+  		><i class="icon icon-trashcan"></i></div>
+  		{% endif %}
+
+  		<hr class="uk-divider-small">
+	</div>  		
+ </li>

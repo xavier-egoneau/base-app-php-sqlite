@@ -1,0 +1,28 @@
+ <meta charset="utf-8" />
+    <title>{% if page.title is defined and title!="" %}{{ page.title }}{% else %}{{ page.titre }} - {% endif %}{{ parametres.title }}</title>
+
+	<!-- Meta Data -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="format-detection" content="telephone=no"/>
+    <meta name="format-detection" content="address=no"/>
+    <meta name="description" content="{% if description is defined %}{{ page.description|raw }}{% else %}{{ parametres.description|raw }}{% endif %}" />
+
+    <!-- Twitter data -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@HI_Diary">
+    <meta name="twitter:title" content="{% if page.title is defined and title!="" %}{{ page.title }}{% else %}{{ page.titre }} - {% endif %}{{ parametres.title }}">
+    <meta name="twitter:description" content="{% if description is defined %}{{ page.description|raw }}{% else %}{{ parametres.description|raw }}{% endif %}">
+    <meta name="twitter:image" content="{% if page.image is defined and page.image!="" %}{{ uploads }}big_{{ page.image }}{% else %}{{ uploads }}big_{{ parametres.branding}}{% endif %}">
+
+    <!-- Open Graph data -->
+    <meta property="og:title" content="{% if page.title is defined and title!="" %}{{ page.title }}{% else %}{{ page.titre }} - {% endif %}{{ parametres.title }}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="{{ curent_url }}" />
+    <meta property="og:image" content="{% if page.image is defined and page.image!="" %}{{ uploads }}big_{{ page.image }}{% else %}{{ uploads }}big_{{ parametres.branding}}{% endif %}" />
+    <meta property="og:description" content="{% if description is defined %}{{ page.description|raw }}{% else %}{{ parametres.description|raw }}{% endif %}" />
+    <meta property="og:site_name" content="{{ parametres.title }}" />
+
+	<!-- Favicons -->
+	<link rel="shortcut icon" href="{{ uploads }}small_{{ parametres.shortcut_icon}}" type="image/png">
+

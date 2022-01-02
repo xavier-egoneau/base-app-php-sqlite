@@ -1,0 +1,47 @@
+<div class="ag valign-wrapper" id="ag">
+    <div class="cover" data-image="{{ uploads }}big_{{ ag.image }}"></div>
+    <div class="innerag">
+        
+        <img src="{{ assets }}img/logoag.png" class="logoag center">
+        <p class="center cap">{{ ag.content|raw }}</p>
+        <div class="center">
+            <div class="btn">no</div>
+            <div class="btn ajaxag">Yes</div>
+        </div>
+        <p class="center cap">Drink responsibly.</p>
+    </div>
+
+    
+
+</div>
+
+
+
+
+<script>
+$( document ).ready(function() {
+
+    /* on charge page */ 
+    $.post("{{ root }}ajax/agcheck/", function( data ) {
+        if(data=="false"){
+            $("#ag").addClass("active");
+            $("#main").addClass("off");
+        }
+    });
+
+    /* on click to valid age gate */
+    $(".ajaxag").on("click",function(){
+    
+
+        $.post("{{ root }}ajax/ag/", function( data ) {
+            document.location.reload(true);
+        });
+
+
+    });
+
+
+
+    
+});
+</script>

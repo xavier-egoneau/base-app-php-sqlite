@@ -1,0 +1,42 @@
+{# 
+	i18n ok 
+	apply in  articles.twig
+#}
+
+
+
+<li class="collection-item list-group-item"  id="block{{ id }}"  >
+     <div class="uk-card ">
+		<div class="innercard">
+			<div class="backid" >{{ id }}</div>
+		
+
+			<p class="truncate" >{{ date.2 }}/{{ date.1 }}/{{ date.0 }} à {{ date.3 }}h{{ date.4 }}:{{ date.5 }}</p>
+		
+		
+	
+			<div class="actionscard">
+			
+			
+
+			
+				{# delete #}
+				{% if usertype == "1" %}
+				<a class="uk-box-shadow-hover-small deletebackup" uk-tooltip="title: {{ language.daletedatas }}; pos: left" href="{{ local }}deletebackup/{{ file }}/"  ><i class="icon icon-trash"></i></a>
+
+				
+				{% endif %}
+				
+				{# load #}
+				{% if usertype == "1"  %}
+				<a class="uk-box-shadow-hover-small sendandreload loadbackup" uk-tooltip="title: {{ languages.returndatas }}; pos: left" href="{{ local }}loadbackup/{{ file }}/">
+				<i class="icon icon-android-refresh"></i>
+				</a>
+				{% endif %}
+			
+			
+			</div>	
+		</div>
+
+	</div>
+</li>

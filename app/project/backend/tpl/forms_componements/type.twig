@@ -1,0 +1,43 @@
+
+
+<div class="uk-margin">
+	<select class="uk-select" id="module_{{ datas.id}}" name="{{ datas.slug }}">
+	
+		{% include 'option_select.twig' with {'option':'texte','option_string':'Valeur simple','value': datas.value } only %}	
+		{% include 'option_select.twig' with {'option':'textarea','option_string':'Texte','value': datas.value } only %}	
+		{% include 'option_select.twig' with {'option':'wysiwyg','option_string':'Texte HTML','value': datas.value } only %}	
+		{% include 'option_select.twig' with {'option':'gallery','option_string':'Upload Images','value': datas.value } only %}
+		{% include 'option_select.twig' with {'option':'image','option_string':'Upload Image','value': datas.value } only %}	
+		{% include 'option_select.twig' with {'option':'pdf','option_string':'Upload PDF','value': datas.value } only %}
+		{% include 'option_select.twig' with {'option':'zip','option_string':'Upload ZIP','value': datas.value } only %}	
+		{% include 'option_select.twig' with {'option':'select','option_string':'Liste','value': datas.value } only %}	
+
+		{% include 'option_select.twig' with {'option':'states','option_string':'States','value': datas.value,'root':root } only %}	
+		{% include 'option_select.twig' with {'option':'city','option_string':'City','value': datas.value,'root':root } only %}	
+
+		{% include 'option_select.twig' with {'option':'select_multiple','option_string':'Choix multiples','value': datas.value } only %}	
+		{# include 'option_select.twig' with {'option':'checkbox','option_string':'Choix multiples','value': datas.value } only #}	
+		{% include 'option_select.twig' with {'option':'date','option_string':'Date','value': datas.value } only %}	
+		{% include 'option_select.twig' with {'option':'number','option_string':'Nombre','value': datas.value } only %}	
+		{% include 'option_select.twig' with {'option':'email','option_string':'E-mail','value': datas.value } only %}	
+		{% include 'option_select.twig' with {'option':'password','option_string':'Mot de passe','value': datas.value } only %}	
+		{% include 'option_select.twig' with {'option':'tags','option_string':'Tags','value': datas.value } only %}	
+		{% include 'option_select.twig' with {'option':'code','option_string':'Code','value': datas.value } only %}	
+		{% include 'option_select.twig' with {'option':'switch','option_string':'Switch','value': datas.value } only %}	
+		{% include 'option_select.twig' with {'option':'range','option_string':'Slider','value': datas.value } only %}	
+		{# include 'option_select.twig' with {'option':'color','option_string':'Couleur','value': datas.value } only #}
+		{% include 'option_select.twig' with {'option':'module_article','option_string':'Article','value': datas.value } only %}
+		{% include 'option_select.twig' with {'option':'module_articles','option_string':'Articles','value': datas.value } only %}	
+		{% include 'option_select.twig' with {'option':'yaml','option_string':'YAML','value': datas.value } only %}	
+		
+		{% include 'option_select.twig' with {'option':'region','option_string':'Région','value': datas.value } only %}
+
+		
+		{# include 'option_select.twig' with {'option':'compteur','option_string':'Compteur','value': datas.value } only %}	
+		{% include 'option_select.twig' with {'option':'pointscarte','option_string':'Map','value': datas.value } only #}	
+		{% include 'option_select.twig' with {'option':'contentmultiple','option_string':'Content multiple','value': datas.value } only %}	
+		{% include 'option_select.twig' with {'option':'module_folder','option_string':'Folder','value': datas.value } only %}	
+		
+		
+	</select>
+</div>

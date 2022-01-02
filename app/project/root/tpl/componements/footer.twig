@@ -1,0 +1,37 @@
+<footer id="footer" class="blck" >
+	<div class="container">
+		
+			<div >
+				
+				<ul class="iconss" >
+					{% for rs in parametres2.rs %}
+					<li><a target="_blank" href="{{ rs.url }}"><i class="icon icon-{{ rs.icon }}"></i></a></li>	
+					{% endfor %}
+					
+					
+				</ul>
+				
+			</div>
+			
+			<div >
+				
+				<ul >
+					{% for men in menu[23] %}
+						
+						
+						{% if lang=="en" %}
+							<li><a href="{{ men.ref.en.url }}" class="liner">{{ men.ref.en.titre }}</a></li>
+						{% else %}
+							<li><a href="{{ men.url }}" class="liner">{{ men.titre }}</a></li>
+						{% endif %}
+						
+						
+					{% endfor %}
+					
+				</ul>
+			</div>
+			
+			
+		</div>
+	
+</footer>

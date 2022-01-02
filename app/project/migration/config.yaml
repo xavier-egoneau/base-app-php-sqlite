@@ -1,0 +1,8 @@
+# ---
+# Config of project
+# http://en.wikipedia.org/wiki/YAML#Sample_document
+#---
+version:        1
+dev:            false
+cache:          false
+key_licence:    "qhgsjhdgjqdjhsgjhs"

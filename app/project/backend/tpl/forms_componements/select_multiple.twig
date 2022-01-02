@@ -1,0 +1,19 @@
+
+{% if is_array(datas.options) %}
+	{% set options = datas.options|raw %}
+{% else %}
+	{% set options = datas.options|raw|split(',') %}
+{% endif %}
+
+
+
+<div class="clear"></div>
+
+
+
+
+<div class="uk-margin uk-grid-small uk-child-width-auto uk-grid">
+   {% for option in options %}
+            <label><input class="uk-checkbox"  id="{{ datas.id }}" name="{{ datas.slug }}[]" value="{{ option }}" type="checkbox"  {% if  in_array(option,datas.value) %}checked{% endif %} >{{ option }}</label>
+    {% endfor %}
+</div>

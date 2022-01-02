@@ -1,0 +1,82 @@
+<div class="loading">
+  <div class="loader">
+    <div class="logo">
+{% include "logo.twig" %}
+    </div>
+    {#<div class="progress"></div>#}
+  </div>
+</div>
+
+<style>
+
+/*
+.loading{
+  background-color: #000;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  position:fixed;
+  transform: translateY(0vh);
+  z-index: 100000;
+
+      display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+
+  
+}
+.loader .logo{
+    width: 120px;
+    display:block;
+    margin: 0 auto;
+}
+
+.loader{
+        height: 150px;
+    display:block;
+    margin: 0 auto;
+
+
+    width: 150px;
+    overflow: hidden;
+}
+
+
+
+.progress{
+    background-color: #222;
+    top: 148px;
+
+    transform: translateX(-150px);
+    height: 150px;
+    width: 150px;
+    position: absolute;
+    left:0;
+    z-index: 10;
+}
+*/
+</style>
+
+<script>
+window.addEventListener('load', function () {
+  TweenMax.to('.loader .progress', .4, {'transform':'translateX(0px)', ease: "Circ.easeOut"});
+  TweenMax.to('.loader .progress', .4, {'top':'0px', ease: "Circ.easeIn",delay:.4});
+  TweenMax.to('.loader .progress', .4, {'top':'-160px', ease: "Circ.easeOut",delay:1});
+  TweenMax.to('.loading', .4, {'transform':'translateY(-100vh)', ease: "Circ.easeIn",delay:1.4});
+  
+  
+
+ 
+});
+$( window ).resize(function() {
+  TweenMax.to('.loading', .4, {'transform':'translateY(-100vh)', ease: "Circ.easeIn",delay:1.4});
+});
+
+
+</script>

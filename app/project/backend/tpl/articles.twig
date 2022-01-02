@@ -1,0 +1,87 @@
+{% extends "layout_connect.twig" %}
+
+ {% block content %}
+ 
+
+
+
+ 						
+ 						{% if return is defined %}
+ 								<a href="{{ local }}{{ return }}" class="uk-box-shadow-hover-small bttn bttn-top" uk-tooltip="title: {{languages.revenir}}; pos: right"><i class="icon icon-left"></i></a>
+ 						{% endif %}	
+ 							
+ 						{% if 
+ 								user.type==1 or 
+ 								user.type==2 and in_array("c",folder.perm2) or 
+ 								user.type==3 and in_array("c",folder.perm3)
+ 						%}
+ 						<a href="{{ local }}articles/{{ cat }}/new/" class="uk-box-shadow-hover-small bttn bttn-top" uk-tooltip="title: {{ languages.ajouterarticle }}; pos: right"><i class="icon icon-plus2"></i></a>
+ 						{% endif %}
+ 							
+ 														
+<div class="clear"></div><div class="space"></div>
+ 								
+ <div class="uk-dark"><h3>{{ folder.titre }}</h3></div> 
+	
+	<ul id="sortable" class="collection sortable uk-sortable-handle" uk-sortable="handle: .handle" data-table="articles" data-ref="{{ cat }}"> 				
+
+ 					
+
+ 					{% for article in articles  %}
+ 					 	
+ 					
+
+ 							
+ 							{% if folder.page is defined and folder.page=='true' %}
+ 								{% set infos = ' - <span class="uk-badge"><i class="icon icon-info"></i> Page</span> ' %}	
+ 							{% else %}
+ 								{% set infos = ' - <span class="uk-badge"><i class="icon icon-info"></i> Datas</span> ' %}	
+ 							{% endif %}
+ 						
+ 						
+ 							
+ 							{% include 'card_generique.twig' with {
+ 									'id':article.id,
+ 									'titre':article.titre,
+ 									'folder':cat,
+                                    'ref':article.ref,
+ 									'statut':article.statut,
+ 									'ordre':article.ordre,
+ 									'infos':infos,
+ 									'language':languages,
+ 									'appurl':local,
+ 									'usertype':user.type,
+ 									'article':article,
+ 									'folderarray':folder,
+ 									'card_type':"articles",
+ 									'page':folder.page,
+ 									'perm2':folder.perm2,
+ 									'perm3':folder.perm3
+ 							} only %}
+ 									
+ 							
+ 							
+ 					{% endfor %}
+ 					
+ 					</ul><!--end row -->		
+ 					
+<ul class="uk-pagination">
+	{% if pageactual==1 %}
+    <li><a href="{{ local }}articles/{{ cat }}/"><span uk-pagination-previous></span></a></li>
+    {% endif %}
+
+    {% if prev is defined and prev!="Null" %}
+    <li><a href="{{ local }}articles/{{ cat }}/{{ prev }}"><span uk-pagination-previous></span></a></li>
+    {% endif %}
+
+    {% if next is defined and next!="Null" %}
+    <li><a href="{{ local }}articles/{{ cat }}/{{ next }}"><span uk-pagination-next></span></a></li>
+    {% endif %}
+</ul>
+
+ 	
+				
+	
+ 
+ 
+ {% endblock %}

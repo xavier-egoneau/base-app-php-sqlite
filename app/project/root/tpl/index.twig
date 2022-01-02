@@ -1,0 +1,39 @@
+{% extends "layout.twig" %} {% block content %}
+
+
+
+
+{% for theme in themes %}
+<article class="docs-article" id="section-{{ theme.id }}">				   
+    <header class="docs-header">
+        
+         <section class="docs-intro">
+			{{ theme.content|raw }}
+        </section><!--//docs-intro-->
+        
+        
+    </header>
+
+    {% for article in theme.pagestoprint %}
+    <section class="docs-section" id="item-{{ theme.id }}-{{ article.id }}">    
+        <h1 class="docs-heading">{{ article.titre }}</h1>
+        <section class="docs-intro">
+            {{ article.content|raw }}
+        </section><!--//docs-intro-->
+        {% if article.code is defined and article.code!="" %}
+        <div class="docs-code-block">
+            <pre class="rounded">
+                <code class="json hljs">{{ article.code }}</code>
+            </pre>
+        </div>
+        {% endif %}
+    </section>
+    {% endfor %}
+    
+</article>
+{% endfor %}
+
+
+               
+
+{% endblock %}

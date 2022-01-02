@@ -1,0 +1,100 @@
+
+{% set img = datas.value %}
+
+<div class="clear"></div>
+
+
+<div class="js-upload{{ datas.id }} uk-placeholder uk-text-center">
+    <span uk-icon="icon: cloud-upload"></span>
+    <span class="uk-text-middle">Glissez vos images ici ou </span>
+    <div uk-form-custom>
+        <input type="file" data-id="{{ datas.id }}"  data-div="receipt{{ datas.slug }}" data-type="img" >
+        <span class="uk-link">sélectionnez-les en cliquant ici.</span>
+        
+        
+    </div>
+</div>
+
+<input class="file-path validate uk-input" type="hidden" name="{{ datas.slug }}" id="gallery{{ datas.id }}" value="{{ datas.value }}">
+
+
+ <ul id="receipt{{ datas.slug }}" class="receiptmedias collection sortable uk-sortable-handle" data-id="gallery{{ datas.id }}" uk-sortable="handle: .handle_media">
+
+ {% if img is defined and img!="" %}
+
+
+        
+        
+        <li class="uk-light" style="background-image:url({{ datas.uploads }}medium_{{ img }});"  uk-img>
+            <div class="uk-close-large delete_media uk-icon uk-close uk-flex uk-flex-center uk-flex-middle" data-img="{{ img }}" uk-close></div><div uk-lightbox><a href="{{ datas.uploads }}big_{{ img }}" class="hover_img_btn voir uk-flex uk-flex-center uk-flex-middle "><i class="icon icon-eye-1"></i></a></div>
+                
+        </li>
+
+
+ {% endif %}
+ </ul>
+ 
+
+
+ <script>
+
+
+    var api_url = $("#data_url_api").data("url");
+    var val_base = $("#gallery{{ datas.id }}").val();
+
+    UIkit.upload('.js-upload{{ datas.id }}', {
+
+        url: api_url+'uploads',
+        multiple: true,
+        beforeSend: function (environment) {
+           loading();
+        },
+        complete: function (arguments) {
+            
+          var datas = $.parseJSON(arguments.response);
+
+                 
+
+                  var html_img =  '<li class="uk-light" style="background-image:url('+root_url+'uploads/medium_'+datas.data[0].id+');"  uk-img><div class="uk-close-large delete_media uk-icon uk-close uk-flex uk-flex-center uk-flex-middle" data-img="'+datas.data[0].id+'" uk-close></div><div uk-lightbox><a href="{{ datas.uploads }}big_'+datas.data[0].id+'" class="hover_img_btn voir uk-flex uk-flex-center uk-flex-middle "><i class="icon icon-eye-1"></i></a></div>';
+                
+
+
+                $("#receipt{{ datas.slug }}").html(html_img);
+                
+                
+                $("#gallery{{ datas.id }}").val(datas.data[0].id);
+
+
+
+
+            actiondelete{{ datas.id }}("{{ datas.id }}");
+  
+            
+        },
+        completeAll:function(){
+            end_loading();
+        }
+
+    });
+
+
+
+function actiondelete{{ datas.id }}(id){
+    $('.delete_media').on('click', function(e){
+
+
+      var img = $(this).data("img");
+     
+      $(this).parent().remove();  
+      $("#gallery"+ id ).val("");
+     
+      
+    });
+}
+
+actiondelete{{ datas.id }}( "{{ datas.id }}");
+
+
+
+</script>
+<div class="clear"></div>

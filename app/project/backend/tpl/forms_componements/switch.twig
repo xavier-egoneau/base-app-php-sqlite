@@ -1,0 +1,24 @@
+
+<div class="clear"></div>
+
+
+
+<!-- Rectangular switch -->
+
+
+<label class="uk-switch" for="fake_{{ datas.id }}" id="{{ datas.id }}">
+    <input type="checkbox"  id="fake_{{ datas.id }}" data-for="mod_{{ datas.id }}" {% if datas.value=="true" %}checked{% endif %}>
+    <div class="uk-switch-slider"></div>
+</label>
+<input type="hidden" name="{{ datas.slug }}" id="mod_{{ datas.id }}" value="{{ datas.value }}" {% if datas.value=="true" %}checked{% endif %} >
+
+
+  <script>
+  $(function(){
+
+
+	  	
+    
+
+  });
+ </script>

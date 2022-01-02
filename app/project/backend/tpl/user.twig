@@ -1,0 +1,185 @@
+{% extends "layout_connect.twig" %}
+
+ {% block content %}
+		
+{# 
+	-----------------------------
+	revenir
+	-----------------------------
+#}
+{% if return is defined  %}
+ 	
+ 	<a href="{{ local }}{{ return }}" class="uk-box-shadow-hover-small bttn bttn-top" uk-tooltip="title: {{ languages.revenir }}; pos: right"><i class="icon icon-left"></i></a>
+
+
+{% endif %}	
+
+{# 
+	-----------------------------
+	Ajouter
+	-----------------------------
+#}
+{% if 
+	user.type=="1" or 
+ 	user.type=="2"
+ %}
+ 	<a href="{{ local }}users/new/" class="uk-box-shadow-hover-small bttn bttn-top" uk-tooltip="title: {{ languages.adduser }}; pos: right"><i class="icon icon-plus2"></i></a>
+
+{% endif %}	
+
+<div class="clear"></div>			
+{% if 
+	user.type=="1" or 
+ 	user.type=="2" or  
+ 	return is defined
+ %}
+<div class="space"></div>
+{% endif %}	
+
+
+{# 
+	-----------------------------
+	titre de la page
+	-----------------------------
+#}				
+<div class="uk-dark">				
+ <h3>{% if userlocal.email is defined %}<a class="page-title truncate">{{ userlocal.email }}</a> {% endif %}</h3>		
+</div> 												
+	
+
+
+{% if new %}
+	<form role="form" action="{{ root }}api/v1/create/users/" class="ajaxFormscreate" method="post" id="user{{ userlocal.id }}" data-basereload="{{ local }}users/" >
+{% else %}
+	<form role="form" action="{{ root }}api/v1/update/users/{{userlocal.id}}" class="ajaxForms" method="post" id="user{{ userlocal.id }}" >
+{% endif %}
+
+				
+{# ------------------ CONTENT ---------------------- #}
+
+				
+				
+				
+				
+				
+					
+					
+					<h1 class="uk-h3">{{ languages.email }}</h1>
+					{% set datas = { 
+						'id': 'email',
+						'slug': 'email',
+						'value': userlocal.email,
+						'ref': '',
+						'local':local,
+						'user':user.type,
+						'options':''
+					} %}
+					{% include 'email.twig' with {'datas': datas }  only %}
+					<hr class="uk-divider-small">
+					
+					
+					
+					
+					<h1 class="uk-h3">{{ languages.pass }}</h1>	
+					{% set datas = { 
+						'id': 'password',
+						'slug': 'password',
+						'value': userlocal.password,
+						'ref': '',
+						'local':local,
+						'user':user.type,
+						'options':''
+					} %}
+					{% include 'password.twig' with {'datas': datas }  only %}
+					<hr class="uk-divider-small">		
+
+					
+					
+					<h1 class="uk-h3">{{ languages.nom  }}</h1>				
+					{% set datas = { 
+						'id': 'nom',
+						'slug': 'nom',
+						'value': userlocal.nom,
+						'ref': '',
+						'local':local,
+						'user':user.type,
+						'options':''
+					} %}
+					{% include 'texte.twig' with {'datas': datas }  only %}
+					<hr class="uk-divider-small">
+
+					<h1 class="uk-h3">{{ languages.prenom  }}</h1>	
+								
+					{% set datas = { 
+						'id': 'prenom',
+						'slug': 'prenom',
+						'value': userlocal.prenom,
+						'ref': '',
+						'local':local,
+						'user':user.type,
+						'options':''
+					} %}
+					{% include 'texte.twig' with {'datas': datas }  only %}
+					<hr class="uk-divider-small">
+					
+					
+					<h1 class="uk-h3">{{ languages.type  }}</h1>	
+
+					
+					
+					
+					<div class="uk-margin">
+					   <select class="uk-select" id="type" name="type" >
+					    
+					     <option value="3" {% if userlocal.type ==3 %}selected{% endif%} >{{languages.editor }}</option>
+					     {% if user.type <= 2 %}<option value="2" {% if userlocal.type ==2 %}selected{% endif%}>{{languages.admin }}</option>{% endif %}
+					     {% if user.type == 1 %}<option value="1" {% if userlocal.type ==1 %}selected{% endif%} >{{languages.creator }}</option>{% endif %}
+					   </select>
+					 </div>
+					<hr class="uk-divider-small">
+					
+				
+					<h1 class="uk-h3">{{ languages.status  }}</h1>
+					
+					{% set datas = { 
+						'id': 'statut',
+						'slug': 'statut',
+						'value': userlocal.statut,
+						'ref': '',
+						'local':local,
+						'user':user.type,
+						'options':''
+					} %}
+					{% include 'switch.twig' with {'datas': datas }  only %}
+				
+									
+					
+					{# submit #}
+					<div class="clear"></div>
+					<input name="id" id="id" type="hidden" value="{{ userlocal.id }}">
+
+					
+					
+				
+				
+					{# ------------------ !CONTENT ---------------------- #}
+					
+					<!-- Button trigger modal -->
+					<div class="clear"></div><br>
+					<button type="submit" class="uk-button uk-button-primary" >{{ languages.save }}</button>
+					
+								
+							
+							</form>
+						
+							
+							
+							
+							
+			
+								 
+								 
+								 
+								
+
+{% endblock %}
