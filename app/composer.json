@@ -1,39 +1,35 @@
 {
-    "name": "front",
-    "authors": [
-        {
-            "name": "xavier egoneau",
-            "email": "xavier.egoneau@gmail.com"
-        }
-    ],
-    "require": {
-        "php": ">=7.1",
-        "brandonwamboldt/utilphp": "1.1.*",   
-        "intervention/image": "^2.3",
+        "require": {
+            "php": ">=7.1",
+            "brandonwamboldt/utilphp": "1.1.*",   
+            "intervention/image": "^2.3",
 
-        "twig/twig":"v1.20.0",
-        "mustangostang/spyc":"*",
-        
-        
-        "php-di/php-di":"5.2.2",
-        "hellointeractiv/asphalte":"dev-master",
-        
-        "illuminate/database":"*",
-        "doctrine/dbal":"~2.3",
-        "robmorgan/phinx":"0.5.*",
-        "gears/session": "v0.8.0",
-  
-        "filp/whoops":"*",
-        "nesbot/carbon":"~1.18",
-        "mobiledetect/mobiledetectlib": "^2.8"
-        
-    },
-    "autoload": {
-    	
-    	"classmap": [
-    		"core",
-    		"models"
-    	]
-    }
+            "twig/twig":"v1.20.0",
+            "mustangostang/spyc":"*",
+            
+            
+            "php-di/php-di":"5.2.2",
+            "hellointeractiv/asphalte":"dev-master",
+            
+            "illuminate/database":"*",
+            "doctrine/dbal":"~2.3",
+            "robmorgan/phinx":"0.5.*",
+            "gears/session": "v0.8.0",
     
+            "filp/whoops":"*",
+            "nesbot/carbon":"*",
+            "mobiledetect/mobiledetectlib": "^2.8"
+        },
+        "autoload": {	
+            "classmap": [
+                "core",
+                "models"
+            ]
+        },
+    
+    "config": {
+        "allow-plugins": {
+            "kylekatarnls/update-helper": true
+        }
+    }
 }

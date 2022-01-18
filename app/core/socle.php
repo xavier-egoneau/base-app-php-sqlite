@@ -104,7 +104,7 @@ class Socle  {
 					!! calcul app paths
 					-------------------------------------------- */
 					//dd($dir);
-					$base_path = strtr( __dir__,["app/core"=>""]);
+					$base_path = strtr( __dir__,["app\core"=>""]);
 					$base_path_index = strtr( $dir,[$base_path=>""]);
 					$test_subfolders = explode("/", $base_path_index);
 					$public_folder = $test_subfolders[0];
@@ -212,7 +212,7 @@ class Socle  {
 					/*---------------------------------------------------------------
 					 * SQL params
 					 *--------------------------------------------------------------- */
-					if($app["config"]['storage']=="sql"){
+					if(isset($app["config"]['storage']) && $app["config"]['storage']=="sql"){
 						
 						if(isset($app["config"]) && filter_url("localhost",$_SERVER['HTTP_HOST'])):
 							$sql_infos = $app["config"]["SQL_connect"];

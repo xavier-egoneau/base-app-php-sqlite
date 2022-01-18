@@ -7,3 +7,4 @@ salt:       ""
 dev:        true
 cache:      false
 email:      ""
+storage: "sqlite"

@@ -3,12 +3,13 @@
 /*---------------------------------------------------------------
  * autoload
  *--------------------------------------------------------------- */
-define('in_app', '...for security dude!');
+define('in_app', '');
 require_once("../app/vendor/autoload.php");//load libs
-require_once("../app/project/datas/datas.php");//load libs
+//require_once("../app/project/datas/datas.php");//load libs
 require_once("../app/core/cache.php");//load libs
 
-
+//print_r(get_declared_classes());
+//die();
 $myapp = new Socle(__dir__);
 
 /*---------------------------------------------------------------
